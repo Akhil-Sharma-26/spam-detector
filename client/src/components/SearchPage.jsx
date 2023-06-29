@@ -13,15 +13,16 @@ export default function SearchPage() {
       />
     <div className="contain">
       <form action="" className="searchbar">
-        <img className="iconsearch" src={iconsearch} alt="Logo" />
+        
         <input
           className="input"
           autoComplete="aff"
           spellCheck="false"
-          role={"combobox"} 
-          placeholder="Search Google or type a URL"
+          // role={"combobox"} 
+          placeholder="Type your Query here..."
           aria-live="polite"
         ></input>
+        <img className="iconsearch" src={iconsearch} alt="Logo" />
         <img src={mic} alt="mic" />
       </form>
     </div>

@@ -39,7 +39,7 @@ display: block;
   outline: none;
   font-size: 17px;
   width: 500px;
-
+  margin-top:1px
 }
 
 .searchbar{
@@ -69,15 +69,17 @@ display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 33px;
+  margin-bottom: 33px;
 }
 
 .iconsearch{
   border: 0;
   border-radius: 100%;
   padding-top: 5px;
-  height: 17px;
+  height: 22px;
   margin-right: 12px;
-  margin-top: 6px;
+  margin-top: 5px;
+
 }
 
 .searchbar button{
