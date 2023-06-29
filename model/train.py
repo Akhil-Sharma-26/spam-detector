@@ -13,7 +13,7 @@ from sklearn.compose import ColumnTransformer
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
-
+#todo
 overall_pipeline = Pipeline([
 
 ])
@@ -32,8 +32,11 @@ def main(data: str, logging=True):
     classifier = GridSearchCV(RandomForestClassifier(), param_grid=params)
     classifier.fit(X, y)
 
-    pk.dump(classifier.best_estimator_, 'model.bin')
-    pk.dump(overall_pipeline, 'pipeline.bin')
+    with open('model.bin', 'wb') as file:
+        pk.dump(classifier.best_estimator_, file)
+    
+    with open('pipeline.bin', 'wb') as file:
+        pk.dump(overall_pipeline, file)
     #implement logging here
 
 if __name__ == '__main__':
