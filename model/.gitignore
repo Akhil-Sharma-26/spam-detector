@@ -1,3 +1,5 @@
 env
 *.bin
 .vscode
+__pycache__
+logfile

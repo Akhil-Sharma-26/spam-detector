@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import pickle as pk
 import sys
+import time
 
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -41,7 +42,6 @@ class WordTransformer(BaseEstimator, TransformerMixin):
         return ' '.join(l)
 
 
-#todo
 overall_pipeline = Pipeline([
     ('tokenize_stopwords', WordTransformer()),
     ('tfidf', TfidfVectorizer())
@@ -67,6 +67,11 @@ def main(data: str, logging=True, encoding='utf-8'):
     with open('pipeline.bin', 'wb') as file:
         pk.dump(overall_pipeline, file)
     #implement logging here
+
+    if bool(logging):
+        with open('logfile', 'a+') as file:
+            t = time.localtime()
+            file.write(f'{classifier.best_estimator_.__class__.__name__} : {t.tm_year}-{t.tm_mon}-{t.tm_mday} {t.tm_hour}:{t.tm_min} : {classifier.best_score_}\n')
 
 if __name__ == '__main__':
     main(sys.argv[1], sys.argv[2], 'ISO-8859-1')
